@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- ============================================== -->
+    <!--  БУХТА · тёмная пастельная палитра              -->
+    <!-- ============================================== -->
+
+    <!-- Фоны -->
+    <Color x:Key="BuhtaBgDeep">#0F1626</Color>
+    <Color x:Key="BuhtaBgBase">#182034</Color>
+    <Color x:Key="BuhtaBgSurface">#212B44</Color>
+    <Color x:Key="BuhtaBgElevated">#2B3757</Color>
+
+    <!-- Границы -->
+    <Color x:Key="BuhtaBorder">#384661</Color>
+    <Color x:Key="BuhtaBorderAccent">#5A6D92</Color>
+
+    <!-- Акцент -->
+    <Color x:Key="BuhtaPrimary">#6B8AC4</Color>
+    <Color x:Key="BuhtaPrimaryHover">#7C9CD6</Color>
+    <Color x:Key="BuhtaPrimaryMuted">#4A5E87</Color>
+
+    <!-- Текст -->
+    <Color x:Key="BuhtaTextPrimary">#E6EDF7</Color>
+    <Color x:Key="BuhtaTextSecondary">#9FAABE</Color>
+    <Color x:Key="BuhtaTextMuted">#6C7788</Color>
+
+    <!-- Статусы -->
+    <Color x:Key="BuhtaStatusFree">#6DBB9A</Color>
+    <Color x:Key="BuhtaStatusOccupied">#D9A566</Color>
+    <Color x:Key="BuhtaStatusAttention">#E8B34F</Color>
+    <Color x:Key="BuhtaStatusDanger">#C76B6B</Color>
+
+    <!-- Служебное -->
+    <Color x:Key="BuhtaDisabled">#3A4761</Color>
+    <Color x:Key="BuhtaWhite">#FFFFFF</Color>
+    <Color x:Key="BuhtaBlack">#000000</Color>
+
+    <!-- Кисти -->
+    <SolidColorBrush x:Key="BuhtaBgDeepBrush"      Color="{StaticResource BuhtaBgDeep}" />
+    <SolidColorBrush x:Key="BuhtaBgBaseBrush"      Color="{StaticResource BuhtaBgBase}" />
+    <SolidColorBrush x:Key="BuhtaBgSurfaceBrush"   Color="{StaticResource BuhtaBgSurface}" />
+    <SolidColorBrush x:Key="BuhtaBgElevatedBrush"  Color="{StaticResource BuhtaBgElevated}" />
+    <SolidColorBrush x:Key="BuhtaBorderBrush"      Color="{StaticResource BuhtaBorder}" />
+    <SolidColorBrush x:Key="BuhtaPrimaryBrush"     Color="{StaticResource BuhtaPrimary}" />
+    <SolidColorBrush x:Key="BuhtaStatusFreeBrush"  Color="{StaticResource BuhtaStatusFree}" />
+    <SolidColorBrush x:Key="BuhtaStatusOccupBrush" Color="{StaticResource BuhtaStatusOccupied}" />
+    <SolidColorBrush x:Key="BuhtaStatusDangerBrush" Color="{StaticResource BuhtaStatusDanger}" />
+    <SolidColorBrush x:Key="BuhtaDisabledBrush" Color="{StaticResource BuhtaDisabled}" />
+    <SolidColorBrush x:Key="BuhtaPrimaryHoverBrush" Color="{StaticResource BuhtaPrimaryHover}" />
+    <SolidColorBrush x:Key="BuhtaPrimaryMutedBrush" Color="{StaticResource BuhtaPrimaryMuted}" />
+
+    <!-- Стандартные алиасы MAUI -->
+    <Color x:Key="Primary">#6B8AC4</Color>
+    <Color x:Key="Secondary">#4A5E87</Color>
+    <Color x:Key="Tertiary">#8CA5D9</Color>
+    <Color x:Key="White">#FFFFFF</Color>
+    <Color x:Key="Black">#000000</Color>
+    <Color x:Key="Gray100">#E6EDF7</Color>
+    <Color x:Key="Gray200">#9FAABE</Color>
+    <Color x:Key="Gray300">#6C7788</Color>
+    <Color x:Key="Gray400">#384661</Color>
+    <Color x:Key="Gray500">#2B3757</Color>
+    <Color x:Key="Gray600">#212B44</Color>
+    <Color x:Key="Gray900">#0F1626</Color>
+    <Color x:Key="Gray950">#0A0F18</Color>
+
+</ResourceDictionary>

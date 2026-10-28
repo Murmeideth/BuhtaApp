@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:BuhtaApp.ViewModels"
+             xmlns:models="clr-namespace:BuhtaApp.Models"
+             xmlns:common="clr-namespace:BuhtaApp.Common"
+             x:Class="BuhtaApp.Views.LobbyPage"
+             x:DataType="vm:LobbyViewModel"
+             BackgroundColor="{StaticResource BuhtaBgBase}"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20,32,20,24" Spacing="18">
+
+            <!-- Header -->
+            <Label Text="⚓ Бухта" Style="{StaticResource TitleLabel}" />
+
+            <!-- Current profile card -->
+            <Border Style="{StaticResource CardElevated}">
+                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                    <Border WidthRequest="52" HeightRequest="52"
+                            BackgroundColor="{StaticResource BuhtaBgSurface}"
+                            Stroke="{Binding CurrentProfile.NameColor, Converter={StaticResource ColorFromHex}}"
+                            StrokeThickness="3"
+                            StrokeShape="RoundRectangle 26">
+                        <Label Text="{Binding CurrentProfile.Avatar}"
+                               FontSize="24"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                        <Label Text="{Binding CurrentProfile.Name, StringFormat='{0}'}"
+                               TextColor="{Binding CurrentProfile.NameColor, Converter={StaticResource ColorFromHex}}"
+                               FontFamily="OpenSansSemibold" FontSize="17" />
+                        <Label Text="{Binding CurrentProfile.Role}"
+                               Style="{StaticResource MutedLabel}" />
+                    </VerticalStackLayout>
+                    <Button Grid.Column="2"
+                            Text="Сменить"
+                            Style="{StaticResource GhostButton}"
+                            FontSize="13"
+                            Padding="8,4"
+                            Command="{Binding AddProfileCommand}" />
+                </Grid>
+            </Border>
+
+            <!-- Профили (переключение) -->
+            <CollectionView ItemsSource="{Binding Profiles}"
+                            SelectionMode="None"
+                            HeightRequest="64">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="8" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:UserProfile">
+                        <Border Padding="8"
+                                BackgroundColor="{StaticResource BuhtaBgSurface}"
+                                Stroke="{Binding NameColor, Converter={StaticResource ColorFromHex}}"
+                                StrokeThickness="2"
+                                WidthRequest="56" HeightRequest="56"
+                                StrokeShape="RoundRectangle 28">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:LobbyViewModel}}, Path=SwitchProfileCommand}"
+                                    CommandParameter="{Binding .}" />
+                            </Border.GestureRecognizers>
+                            <Label Text="{Binding Avatar}"
+                                   FontSize="24"
+                                   HorizontalOptions="Center" VerticalOptions="Center" />
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <BoxView Style="{StaticResource HRule}" Margin="0,8" />
+
+            <!-- Если смена открыта -->
+            <VerticalStackLayout IsVisible="{Binding IsHosting}" Spacing="12">
+                <Label Text="Ваша смена открыта" Style="{StaticResource HeaderLabel}" />
+                <Border Style="{StaticResource CardAccent}">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="{Binding CurrentShiftName}"
+                               Style="{StaticResource HeaderLabel}" />
+                        <Label Text="IP для подключения:"
+                               Style="{StaticResource SecondaryLabel}" />
+                        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                            <Label Text="{Binding HostIp}"
+                                   FontFamily="OpenSansSemibold"
+                                   FontSize="20"
+                                   TextColor="{StaticResource BuhtaPrimary}"
+                                   VerticalOptions="Center" />
+                            <Button Grid.Column="1"
+                                    Text="Копировать"
+                                    Style="{StaticResource GhostButton}"
+                                    FontSize="13"
+                                    Padding="8,6"
+                                    Command="{Binding CopyIpCommand}" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Button Text="Открыть экран смены"
+                        Style="{StaticResource PrimaryButton}"
+                        Command="{Binding ResumeShiftCommand}" />
+                <Button Text="Закрыть смену"
+                        Style="{StaticResource DangerButton}"
+                        Command="{Binding CloseShiftCommand}" />
+            </VerticalStackLayout>
+
+            <!-- Если смена не открыта -->
+            <VerticalStackLayout IsVisible="{Binding IsHosting, Converter={StaticResource InvertBool}}" Spacing="16">
+
+                <Label Text="Открыть смену" Style="{StaticResource HeaderLabel}" />
+                <Button Text="⚡ Открыть новую смену"
+                        Style="{StaticResource PrimaryButton}"
+                        Command="{Binding OpenShiftCommand}"
+                        IsEnabled="{Binding IsNotBusy}" />
+
+                <BoxView Style="{StaticResource HRule}" Margin="0,8" />
+
+                <Label Text="Подключиться к смене" Style="{StaticResource HeaderLabel}" />
+                <Label Text="Введите IP-адрес хоста (его видно на устройстве, открывшем смену)"
+                       Style="{StaticResource SecondaryLabel}" />
+                <Entry Text="{Binding JoinIpInput}"
+                       Placeholder="192.168.1.42"
+                       Keyboard="Numeric" />
+                <Button Text="Подключиться"
+                        Style="{StaticResource PrimaryButton}"
+                        Command="{Binding JoinShiftCommand}"
+                        IsEnabled="{Binding IsNotBusy}" />
+            </VerticalStackLayout>
+
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

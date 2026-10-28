@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BuhtaApp.Views.ShiftPage"
+             BackgroundColor="{StaticResource BuhtaBgBase}"
+             Shell.NavBarIsVisible="False">
+
+    <Grid RowDefinitions="Auto,*,Auto" Padding="20,32,20,24" RowSpacing="16">
+
+        <!-- Header -->
+        <VerticalStackLayout Grid.Row="0" Spacing="4">
+            <Label x:Name="ShiftNameLabel"
+                   Text="Смена"
+                   Style="{StaticResource TitleLabel}" />
+            <Label x:Name="ShiftStatusLabel"
+                   Text="Подключение..."
+                   Style="{StaticResource SecondaryLabel}" />
+        </VerticalStackLayout>
+
+        <!-- Body: список участников -->
+        <VerticalStackLayout Grid.Row="1" Spacing="12">
+            <Label Text="Участники смены" Style="{StaticResource HeaderLabel}" />
+            <CollectionView x:Name="MembersView">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="8" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource Card}">
+                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                                <Label Text="{Binding Avatar}"
+                                       FontSize="22"
+                                       VerticalOptions="Center" />
+                                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                                    <Label Text="{Binding Name}"
+                                           FontFamily="OpenSansSemibold" FontSize="15" />
+                                    <Label Text="{Binding Role}"
+                                           Style="{StaticResource MutedLabel}" />
+                                </VerticalStackLayout>
+                                <Label Grid.Column="2"
+                                       Text="★"
+                                       TextColor="{StaticResource BuhtaStatusAttention}"
+                                       FontSize="18"
+                                       IsVisible="{Binding IsHost}"
+                                       VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Border Style="{StaticResource Card}" Margin="0,16,0,0">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="Полноценный экран смены"
+                           Style="{StaticResource SecondaryLabel}" />
+                    <Label Text="Сетка столов, заказы и приём позиций для бармена/повара появятся в следующих блоках."
+                           Style="{StaticResource MutedLabel}" />
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+
+        <!-- Footer: выход -->
+        <Button Grid.Row="2"
+                Text="Выйти в лобби"
+                Style="{StaticResource DangerButton}"
+                Clicked="OnLeaveClicked" />
+    </Grid>
+</ContentPage>

@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- ============================================== -->
+    <!--  PAGE / SHELL                                   -->
+    <!-- ============================================== -->
+    <Style TargetType="Page" ApplyToDerivedTypes="True">
+        <Setter Property="BackgroundColor" Value="{StaticResource BuhtaBgBase}" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <Style TargetType="Shell" ApplyToDerivedTypes="True">
+        <Setter Property="Shell.BackgroundColor" Value="{StaticResource BuhtaBgDeep}" />
+        <Setter Property="Shell.ForegroundColor" Value="{StaticResource BuhtaTextPrimary}" />
+        <Setter Property="Shell.TitleColor" Value="{StaticResource BuhtaTextPrimary}" />
+        <Setter Property="Shell.DisabledColor" Value="{StaticResource BuhtaTextMuted}" />
+        <Setter Property="Shell.UnselectedColor" Value="{StaticResource BuhtaTextSecondary}" />
+        <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource BuhtaBgDeep}" />
+        <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource BuhtaPrimary}" />
+        <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource BuhtaPrimary}" />
+        <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource BuhtaTextSecondary}" />
+    </Style>
+
+    <!-- ============================================== -->
+    <!--  LABEL                                          -->
+    <!-- ============================================== -->
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource BuhtaTextPrimary}" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style x:Key="HeaderLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource BuhtaTextPrimary}" />
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="FontSize" Value="22" />
+    </Style>
+
+    <Style x:Key="TitleLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource BuhtaTextPrimary}" />
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="FontSize" Value="28" />
+    </Style>
+
+    <Style x:Key="SecondaryLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource BuhtaTextSecondary}" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+
+    <Style x:Key="MutedLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource BuhtaTextMuted}" />
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+
+    <Style x:Key="PriceLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource BuhtaTextPrimary}" />
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="FontSize" Value="15" />
+    </Style>
+
+    <!-- ============================================== -->
+    <!--  BUTTON (VisualStateManager в Style)            -->
+    <!-- ============================================== -->
+
+    <!-- Обычная кнопка -->
+    <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource BuhtaBgSurface}" />
+        <Setter Property="TextColor" Value="{StaticResource BuhtaTextPrimary}" />
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Padding" Value="16,12" />
+        <Setter Property="MinimumHeightRequest" Value="48" />
+        <Setter Property="BorderColor" Value="{StaticResource BuhtaBorder}" />
+        <Setter Property="BorderWidth" Value="1" />
+
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="PointerOver">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="{StaticResource BuhtaBgElevatedBrush}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="{StaticResource BuhtaBgDeepBrush}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="{StaticResource BuhtaDisabledBrush}" />
+                            <Setter Property="TextColor" Value="{StaticResource BuhtaTextMuted}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <!-- Primary кнопка -->
+    <Style x:Key="PrimaryButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource BuhtaPrimary}" />
+        <Setter Property="TextColor" Value="{StaticResource BuhtaWhite}" />
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Padding" Value="16,12" />
+        <Setter Property="MinimumHeightRequest" Value="48" />
+        <Setter Property="BorderWidth" Value="0" />
+
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="PointerOver">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="{StaticResource BuhtaPrimaryHoverBrush}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="{StaticResource BuhtaPrimaryMutedBrush}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="{StaticResource BuhtaDisabledBrush}" />
+                            <Setter Property="TextColor" Value="{StaticResource BuhtaTextMuted}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <!-- Danger кнопка -->
+    <Style x:Key="DangerButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="TextColor" Value="{StaticResource BuhtaStatusDanger}" />
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Padding" Value="16,12" />
+        <Setter Property="MinimumHeightRequest" Value="48" />
+        <Setter Property="BorderColor" Value="{StaticResource BuhtaStatusDanger}" />
+        <Setter Property="BorderWidth" Value="1" />
+
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="PointerOver">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="#20C76B6B" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="#40C76B6B" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="TextColor" Value="{StaticResource BuhtaTextMuted}" />
+                            <Setter Property="BorderColor" Value="{StaticResource BuhtaDisabled}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <!-- Ghost кнопка (без фона) -->
+    <Style x:Key="GhostButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="TextColor" Value="{StaticResource BuhtaPrimary}" />
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Padding" Value="16,12" />
+        <Setter Property="MinimumHeightRequest" Value="48" />
+        <Setter Property="BorderWidth" Value="0" />
+
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="PointerOver">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="#206B8AC4" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="#406B8AC4" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="{StaticResource BuhtaTextMuted}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <!-- ============================================== -->
+    <!--  ENTRY / EDITOR / SEARCH                        -->
+    <!-- ============================================== -->
+    <Style TargetType="Entry">
+        <Setter Property="TextColor" Value="{StaticResource BuhtaTextPrimary}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource BuhtaTextMuted}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource BuhtaBgSurface}" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="MinimumHeightRequest" Value="48" />
+    </Style>
+
+    <Style TargetType="Editor">
+        <Setter Property="TextColor" Value="{StaticResource BuhtaTextPrimary}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource BuhtaTextMuted}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource BuhtaBgSurface}" />
+        <Setter Property="FontSize" Value="15" />
+    </Style>
+
+    <Style TargetType="SearchBar">
+        <Setter Property="TextColor" Value="{StaticResource BuhtaTextPrimary}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource BuhtaTextMuted}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource BuhtaBgSurface}" />
+        <Setter Property="CancelButtonColor" Value="{StaticResource BuhtaPrimary}" />
+    </Style>
+
+    <Style TargetType="Switch">
+        <Setter Property="OnColor" Value="{StaticResource BuhtaPrimary}" />
+        <Setter Property="ThumbColor" Value="{StaticResource BuhtaWhite}" />
+    </Style>
+
+    <Style TargetType="ActivityIndicator">
+        <Setter Property="Color" Value="{StaticResource BuhtaPrimary}" />
+    </Style>
+
+    <Style TargetType="ProgressBar">
+        <Setter Property="ProgressColor" Value="{StaticResource BuhtaPrimary}" />
+    </Style>
+
+    <!-- ============================================== -->
+    <!--  CARD (Border)                                  -->
+    <!-- ============================================== -->
+    <Style x:Key="Card" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="{StaticResource BuhtaBgSurface}" />
+        <Setter Property="Stroke" Value="{StaticResource BuhtaBorderBrush}" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="Padding" Value="16" />
+        <Setter Property="StrokeShape">
+            <Setter.Value>
+                <RoundRectangle CornerRadius="16" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CardElevated" TargetType="Border" BasedOn="{StaticResource Card}">
+        <Setter Property="BackgroundColor" Value="{StaticResource BuhtaBgElevated}" />
+    </Style>
+
+    <Style x:Key="CardAccent" TargetType="Border" BasedOn="{StaticResource Card}">
+        <Setter Property="Stroke" Value="{StaticResource BuhtaPrimaryBrush}" />
+    </Style>
+
+    <!-- ============================================== -->
+    <!--  BADGE                                          -->
+    <!-- ============================================== -->
+    <Style x:Key="Badge" TargetType="Border">
+        <Setter Property="Padding" Value="8,4" />
+        <Setter Property="StrokeThickness" Value="0" />
+        <Setter Property="StrokeShape">
+            <Setter.Value>
+                <RoundRectangle CornerRadius="10" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BadgeFree" TargetType="Border" BasedOn="{StaticResource Badge}">
+        <Setter Property="BackgroundColor" Value="{StaticResource BuhtaStatusFree}" />
+    </Style>
+
+    <Style x:Key="BadgeOccupied" TargetType="Border" BasedOn="{StaticResource Badge}">
+        <Setter Property="BackgroundColor" Value="{StaticResource BuhtaStatusOccupied}" />
+    </Style>
+
+    <Style x:Key="BadgeAttention" TargetType="Border" BasedOn="{StaticResource Badge}">
+        <Setter Property="BackgroundColor" Value="{StaticResource BuhtaStatusAttention}" />
+    </Style>
+
+    <Style x:Key="BadgeDanger" TargetType="Border" BasedOn="{StaticResource Badge}">
+        <Setter Property="BackgroundColor" Value="{StaticResource BuhtaStatusDanger}" />
+    </Style>
+
+    <!-- ============================================== -->
+    <!--  LIST / COLLECTIONVIEW                          -->
+    <!-- ============================================== -->
+    <Style TargetType="CollectionView">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+    </Style>
+
+    <!-- ============================================== -->
+    <!--  SEPARATOR                                      -->
+    <!-- ============================================== -->
+    <Style x:Key="HRule" TargetType="BoxView">
+        <Setter Property="Color" Value="{StaticResource BuhtaBorder}" />
+        <Setter Property="HeightRequest" Value="1" />
+        <Setter Property="HorizontalOptions" Value="Fill" />
+    </Style>
+
+</ResourceDictionary>

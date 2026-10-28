@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:BuhtaApp.Views"
+       x:Class="BuhtaApp.AppShell"
+       Shell.FlyoutBehavior="Disabled"
+       Shell.NavBarIsVisible="False"
+       Shell.TabBarIsVisible="False">
+
+    <TabBar>
+        <ShellContent Route="bootstrap"
+                      ContentTemplate="{DataTemplate views:BootstrapPage}" />
+        <ShellContent Route="profile-editor"
+                      ContentTemplate="{DataTemplate views:ProfileEditorPage}" />
+        <ShellContent Route="lobby"
+                      ContentTemplate="{DataTemplate views:LobbyPage}" />
+        <ShellContent Route="shift"
+                      ContentTemplate="{DataTemplate views:ShiftPage}" />
+    </TabBar>
+
+</Shell>

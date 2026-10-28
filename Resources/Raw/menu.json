@@ -1,0 +1,188 @@
+{
+	"categories": [
+		{
+			"id": "salads",
+			"name": "Салаты",
+			"icon": "🥗",
+			"targetStation": "Kitchen",
+			"items": [
+				{
+					"id": "caesar",
+					"name": "Цезарь с креветками",
+					"price": 490,
+					"portion": "220 г"
+				},
+				{
+					"id": "pirate_salad",
+					"name": "Флибустьерский",
+					"price": 520,
+					"portion": "250 г"
+				},
+				{
+					"id": "sea_salad",
+					"name": "Морской",
+					"price": 580,
+					"portion": "240 г"
+				}
+			]
+		},
+		{
+			"id": "soups",
+			"name": "Супы",
+			"icon": "🍲",
+			"targetStation": "Kitchen",
+			"items": [
+				{
+					"id": "borsch",
+					"name": "Борщ с пампушкой",
+					"price": 350,
+					"portion": "300 г"
+				},
+				{
+					"id": "ukha",
+					"name": "Уха по-пиратски",
+					"price": 420,
+					"portion": "300 г"
+				}
+			]
+		},
+		{
+			"id": "hot",
+			"name": "Горячее",
+			"icon": "🍖",
+			"targetStation": "Kitchen",
+			"items": [
+				{
+					"id": "davy_jones",
+					"name": "Дейви Джонс",
+					"price": 890,
+					"portion": "320 г"
+				},
+				{
+					"id": "drunken_sailor",
+					"name": "Пьяный матрос",
+					"price": 740,
+					"portion": "300 г"
+				},
+				{
+					"id": "steak",
+					"name": "Стейк капитана",
+					"price": 1290,
+					"portion": "280 г"
+				}
+			]
+		},
+		{
+			"id": "sets",
+			"name": "Сеты",
+			"icon": "🍱",
+			"targetStation": "Kitchen",
+			"items": [
+				{
+					"id": "set_duo",
+					"name": "Сет на двоих",
+					"price": 1890,
+					"portion": "на 2 персоны"
+				},
+				{
+					"id": "set_crew",
+					"name": "Сет «Экипаж»",
+					"price": 3490,
+					"portion": "на 4 персоны"
+				}
+			]
+		},
+		{
+			"id": "shots",
+			"name": "Шоты",
+			"icon": "🥃",
+			"targetStation": "Bar",
+			"items": [
+				{
+					"id": "shot_rum",
+					"name": "Шот рома",
+					"price": 150,
+					"portion": "50 мл"
+				},
+				{
+					"id": "shot_tequila",
+					"name": "Шот текилы",
+					"price": 180,
+					"portion": "50 мл"
+				}
+			]
+		},
+		{
+			"id": "rum",
+			"name": "Ром",
+			"icon": "🍹",
+			"targetStation": "Bar",
+			"items": [
+				{
+					"id": "bacardi",
+					"name": "Bacardi Carta Blanca",
+					"price": 350,
+					"portion": "50 мл"
+				},
+				{
+					"id": "captain_morgan",
+					"name": "Captain Morgan Spiced",
+					"price": 380,
+					"portion": "50 мл"
+				}
+			]
+		}
+	],
+	"tables": [
+		{
+			"number": 1,
+			"name": "Стол 1",
+			"type": "Regular"
+		},
+		{
+			"number": 2,
+			"name": "Стол 2",
+			"type": "Regular"
+		},
+		{
+			"number": 3,
+			"name": "Стол 3",
+			"type": "Regular"
+		},
+		{
+			"number": 4,
+			"name": "Стол 4",
+			"type": "Regular"
+		},
+		{
+			"number": 5,
+			"name": "Стол 5",
+			"type": "Regular"
+		},
+		{
+			"number": 6,
+			"name": "Стол 6",
+			"type": "Regular"
+		},
+		{
+			"number": 7,
+			"name": "Стол 7",
+			"type": "Regular"
+		},
+		{
+			"number": 8,
+			"name": "Стол 8",
+			"type": "Regular"
+		},
+		{
+			"number": 9,
+			"name": "Стол 9",
+			"type": "Regular"
+		},
+		{
+			"number": 10,
+			"name": "Бар",
+			"type": "Bar"
+		}
+	]
+}

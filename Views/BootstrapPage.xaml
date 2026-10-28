@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BuhtaApp.Views.BootstrapPage"
+             BackgroundColor="{StaticResource BuhtaBgBase}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="14">
+
+            <Label Text="⚓ Бухта"
+                   Style="{StaticResource TitleLabel}"
+                   HorizontalOptions="Center"
+                   Margin="0,8,0,0" />
+
+            <Label x:Name="ProfileLabel"
+                   Text="Проверка загрузки данных..."
+                   Style="{StaticResource SecondaryLabel}"
+                   HorizontalOptions="Center" />
+
+            <Label x:Name="StatusLabel"
+                   Text=""
+                   Style="{StaticResource MutedLabel}"
+                   HorizontalOptions="Center" />
+
+            <BoxView Style="{StaticResource HRule}" Margin="0,8" />
+
+            <Label Text="Категории меню (из menu.json):"
+                   Style="{StaticResource HeaderLabel}" />
+
+            <CollectionView x:Name="CategoriesView"
+                            ItemsSource="{Binding Categories}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource Card}">
+                            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                                <Label Text="{Binding Icon}"
+                                       FontSize="26"
+                                       VerticalOptions="Center" />
+                                <VerticalStackLayout Grid.Column="1" Spacing="2">
+                                    <Label Text="{Binding Name}"
+                                           Style="{StaticResource HeaderLabel}" />
+                                    <Label Text="{Binding TargetStation, StringFormat='Станция: {0}'}"
+                                           Style="{StaticResource MutedLabel}" />
+                                </VerticalStackLayout>
+                                <Label Grid.Column="2"
+                                       Text="{Binding Items.Count, StringFormat='{0} поз.'}"
+                                       Style="{StaticResource SecondaryLabel}"
+                                       VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <BoxView Style="{StaticResource HRule}" Margin="0,8" />
+
+            <Label Text="Проверка кнопок:"
+                   Style="{StaticResource HeaderLabel}" />
+
+            <Button Text="Primary кнопка" Style="{StaticResource PrimaryButton}" />
+            <Button Text="Обычная кнопка" />
+            <Button Text="Danger кнопка" Style="{StaticResource DangerButton}" />
+            <Button Text="Ghost кнопка" Style="{StaticResource GhostButton}" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

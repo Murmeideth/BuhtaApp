@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:BuhtaApp.ViewModels"
+             x:Class="BuhtaApp.Views.ProfileEditorPage"
+             x:DataType="vm:ProfileEditorViewModel"
+             BackgroundColor="{StaticResource BuhtaBgBase}"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24,32,24,32" Spacing="20">
+
+            <Label Text="⚓ Новый профиль" Style="{StaticResource TitleLabel}" />
+            <Label Text="Как тебя зовут и кем ты работаешь в бухте?"
+                   Style="{StaticResource SecondaryLabel}" />
+
+            <!-- Превью аватара -->
+            <Border HorizontalOptions="Center"
+                    WidthRequest="110" HeightRequest="110"
+                    Stroke="{Binding SelectedColor.Color}"
+                    StrokeThickness="4"
+                    BackgroundColor="{StaticResource BuhtaBgSurface}"
+                    StrokeShape="RoundRectangle 55">
+                <Label Text="{Binding SelectedAvatar.Emoji}"
+                       FontSize="52"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+            </Border>
+
+            <!-- Имя -->
+            <Label Text="Имя" Style="{StaticResource HeaderLabel}" FontSize="16" />
+            <Entry Text="{Binding Name}" Placeholder="Например, Маша" />
+
+            <!-- Превью имени в выбранном цвете -->
+            <Label Text="{Binding Name}"
+                   TextColor="{Binding SelectedColor.Color}"
+                   FontFamily="OpenSansSemibold"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   LineBreakMode="TailTruncation" />
+
+            <!-- Роль -->
+            <Label Text="Роль" Style="{StaticResource HeaderLabel}" FontSize="16" />
+            <CollectionView ItemsSource="{Binding Roles}"
+                            SelectedItem="{Binding SelectedRole}"
+                            SelectionMode="Single"
+                            HeightRequest="56">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="8" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:RoleOption">
+                        <Border x:Name="RoleBorder"
+                                Padding="14,10"
+                                BackgroundColor="{StaticResource BuhtaBgSurface}"
+                                Stroke="{StaticResource BuhtaBorder}"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 12">
+                            <Label Text="{Binding DisplayName}" FontSize="14" />
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="Stroke" Value="{StaticResource BuhtaPrimary}" />
+                                            <Setter Property="StrokeThickness" Value="2" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Цвета -->
+            <Label Text="Цвет имени" Style="{StaticResource HeaderLabel}" FontSize="16" />
+            <CollectionView ItemsSource="{Binding Colors}"
+                            SelectedItem="{Binding SelectedColor}"
+                            SelectionMode="Single"
+                            HeightRequest="56">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="8" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:ColorOption">
+                        <Border x:Name="ColorBorder"
+                                BackgroundColor="{Binding Color}"
+                                Stroke="{StaticResource BuhtaBorder}"
+                                StrokeThickness="1"
+                                WidthRequest="44" HeightRequest="44"
+                                StrokeShape="RoundRectangle 22">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="Stroke" Value="{StaticResource BuhtaPrimary}" />
+                                            <Setter Property="StrokeThickness" Value="3" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Аватары -->
+            <Label Text="Аватар" Style="{StaticResource HeaderLabel}" FontSize="16" />
+            <CollectionView ItemsSource="{Binding Avatars}"
+                            SelectedItem="{Binding SelectedAvatar}"
+                            SelectionMode="Single">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="6"
+                                     HorizontalItemSpacing="8" VerticalItemSpacing="8" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:AvatarOption">
+                        <Border x:Name="AvatarBorder"
+                                BackgroundColor="{StaticResource BuhtaBgSurface}"
+                                Stroke="{StaticResource BuhtaBorder}"
+                                StrokeThickness="1"
+                                HeightRequest="48"
+                                StrokeShape="RoundRectangle 12">
+                            <Label Text="{Binding Emoji}" FontSize="24"
+                                   HorizontalOptions="Center" VerticalOptions="Center" />
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="Stroke" Value="{StaticResource BuhtaPrimary}" />
+                                            <Setter Property="StrokeThickness" Value="2" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Создать профиль"
+                    Style="{StaticResource PrimaryButton}"
+                    Command="{Binding SaveCommand}"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Margin="0,16,0,0" />
+
+            <ActivityIndicator IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
